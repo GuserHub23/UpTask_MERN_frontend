@@ -25,7 +25,6 @@ const ResetPassword = () => {
             const { data } = await clienteAxios.post(`/usuarios/reset-password`, {
                 email
             })
-            console.log(data)
             setAlerta({
                 msg: data.msg,
                 error: false

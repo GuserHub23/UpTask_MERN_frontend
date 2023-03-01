@@ -78,7 +78,6 @@ const Proyecto = () => {
 
     const { nombre, tareas, colaboradores } = proyecto
     
-    console.log(proyecto)
     if( cargando ) return 'cargando...'
 
     return (

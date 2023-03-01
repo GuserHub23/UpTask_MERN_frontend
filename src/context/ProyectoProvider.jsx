@@ -344,7 +344,6 @@ const ProyectoProvider = ({children}) => {
             }
 
             const { data } = await clienteAxios.post(`/proyectos/colaboradores/${proyecto._id}`, email, config)
-            console.log(data)
 
             setAlerta({
                 msg: data.msg,

@@ -75,7 +75,6 @@ const NewPassword = () => {
                 msg: data.msg,
                 error: false
             })
-            console.log(data)
 
         } catch (error) {
             setAlerta({
