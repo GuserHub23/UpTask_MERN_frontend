@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { useProyectos } from '../hooks/useProyectos'
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -14,6 +14,8 @@ const Busqueda = () => {
     
     const proyectosFiltrados = busqueda === '' ? [] : proyectos.filter( proyecto => proyecto.nombre.toLowerCase().includes(busqueda.toLowerCase()))
     
+    const navigate = useNavigate()
+
     return (
         <Transition.Root show={ buscador } as={ Fragment } afterLeave={ () => setBusqueda('') }>
             <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto mt-20 p-4 sm:p-20 md:p-20" onClose={ handleBuscador }>
@@ -41,7 +43,7 @@ const Busqueda = () => {
                 <Combobox
                     as="div"
                     className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
-                    onChange={(proyecto) => (redirect(`/proyectos/${proyecto._id}`))}
+                    onChange={(proyecto) => (navigate(`/proyectos/${proyecto._id}`))}
                 >
                     <div className="relative">
                         <Combobox.Input
