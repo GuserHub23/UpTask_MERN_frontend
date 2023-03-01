@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { useProyectos } from '../hooks/useProyectos'
+import { redirect } from 'react-router-dom'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -40,7 +41,7 @@ const Busqueda = () => {
                 <Combobox
                     as="div"
                     className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
-                    onChange={(proyecto) => (window.location = `/proyectos/${proyecto._id}`)}
+                    onChange={(proyecto) => (redirect(`/proyectos/${proyecto._id}`))}
                 >
                     <div className="relative">
                         <Combobox.Input
